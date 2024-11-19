@@ -20,11 +20,15 @@
             console.log('Se perdio conexion con servidor')
         })
 
-        socket.emit('mensaje', { nombre: 'Josue' }) // se suelen enviar objetos
+        //socket.emit('mensaje', { nombre: 'Josue' }) // se suelen enviar objetos
 
+        socket.on('emitir-mensaje', function(payload){
+            console.log('Nuevo mensaje:',payload)
+        })
 
-        socket.on('mensaje', function( payload ){
-            console.log("escuchando:", payload);
+        socket.on('active-bands', function(payload){
+            console.clear();
+            console.table(payload);
         })
     </script>
 
